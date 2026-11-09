@@ -6,6 +6,7 @@ int main(void) {
     const int screenHeight = 450;
     bool DebugMode = false;
     bool DebugPrint = true;
+    float deltaTime = GetFrameTime();
 
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(screenWidth, screenHeight, "Grit InDev");
@@ -27,17 +28,23 @@ int main(void) {
 
         }
 
+        BeginDrawing();
+
+        ClearBackground(RAYWHITE);
+        DrawText("Grit InDev Test", 7, 7, 15, LIGHTGRAY);
+
+
         if (DebugMode) {
             if (DebugPrint) {
                 std::cout << "[DEBUG] DebugMode on\n";
                 DebugPrint = false;
             }
+            DrawText("DebugMode ON", 7, 19, 15, LIGHTGRAY);
+            
         }
-
-
-        BeginDrawing();
-        ClearBackground(RAYWHITE);
-        DrawText("Grit InDev Test", 7, 7, 15, LIGHTGRAY);
+        else {
+            DrawText("DebugMode OFF", 7, 19, 15, LIGHTGRAY);
+        }
         EndDrawing();
     }
     CloseWindow();
