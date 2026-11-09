@@ -4,6 +4,8 @@
 int main(void) {
     const int screenWidth = 800;
     const int screenHeight = 450;
+    const char *FpsText = 0;
+    const char *FtText = 0;
     bool DebugMode = false;
     bool DebugPrint = true;
     float deltaTime = GetFrameTime();
@@ -39,11 +41,11 @@ int main(void) {
                 std::cout << "[DEBUG] DebugMode on\n";
                 DebugPrint = false;
             }
-            DrawText("DebugMode ON", 7, 19, 15, LIGHTGRAY);
+            FpsText = TextFormat("FPS: %i", GetFPS());
+            FtText = TextFormat("Frame Time: %i", GetFrameTime());
+            DrawText(FpsText, 7, 19, 15, LIGHTGRAY);
+            DrawText(FtText, 7, 31, 15, LIGHTGRAY);
             
-        }
-        else {
-            DrawText("DebugMode OFF", 7, 19, 15, LIGHTGRAY);
         }
         EndDrawing();
     }
