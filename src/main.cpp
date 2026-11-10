@@ -10,6 +10,8 @@ int main(void) {
     bool DebugPrint = true;
     float deltaTime = GetFrameTime();
 
+    Vector2 playerPosition = { (float)screenWidth/2, (float)screenHeight/2};
+
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(screenWidth, screenHeight, "Grit InDev");
 
@@ -30,6 +32,15 @@ int main(void) {
 
         }
 
+        if (IsKeyDown(KEY_D)) playerPosition.x += 2.0f;
+        if (IsKeyDown(KEY_A)) playerPosition.x -= 2.0f;
+        if (IsKeyDown(KEY_W)) playerPosition.y -= 2.0f;
+        if (IsKeyDown(KEY_S)) playerPosition.y += 2.0f;
+        if (IsKeyDown(KEY_RIGHT)) playerPosition.x += 2.0f;
+        if (IsKeyDown(KEY_LEFT)) playerPosition.x -= 2.0f;
+        if (IsKeyDown(KEY_UP)) playerPosition.y -= 2.0f;
+        if (IsKeyDown(KEY_DOWN)) playerPosition.y += 2.0f;
+
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
@@ -47,6 +58,10 @@ int main(void) {
             DrawText(FtText, 7, 31, 15, LIGHTGRAY);
             
         }
+
+        DrawCircleV(playerPosition, 20, BLUE);
+
+
         EndDrawing();
     }
     CloseWindow();
