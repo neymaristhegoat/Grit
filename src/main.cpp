@@ -6,9 +6,9 @@ int main(void) {
     const int screenHeight = 450;
     const char *FpsText = 0;
     const char *FtText = 0;
+    const char speed = 15.0f;
     bool DebugMode = false;
     bool DebugPrint = true;
-    float deltaTime = GetFrameTime();
 
     Vector2 playerPosition = { (float)screenWidth/2, (float)screenHeight/2};
 
@@ -32,14 +32,14 @@ int main(void) {
 
         }
 
-        if (IsKeyDown(KEY_D)) playerPosition.x += 2.0f;
-        if (IsKeyDown(KEY_A)) playerPosition.x -= 2.0f;
-        if (IsKeyDown(KEY_W)) playerPosition.y -= 2.0f;
-        if (IsKeyDown(KEY_S)) playerPosition.y += 2.0f;
-        if (IsKeyDown(KEY_RIGHT)) playerPosition.x += 2.0f;
-        if (IsKeyDown(KEY_LEFT)) playerPosition.x -= 2.0f;
-        if (IsKeyDown(KEY_UP)) playerPosition.y -= 2.0f;
-        if (IsKeyDown(KEY_DOWN)) playerPosition.y += 2.0f;
+        if (IsKeyDown(KEY_D)) playerPosition.x += GetFrameTime()*6.0f*speed;
+        if (IsKeyDown(KEY_A)) playerPosition.x -= GetFrameTime()*6.0f*speed;
+        if (IsKeyDown(KEY_W)) playerPosition.y -= GetFrameTime()*6.0f*speed;
+        if (IsKeyDown(KEY_S)) playerPosition.y += GetFrameTime()*6.0f*speed;
+        if (IsKeyDown(KEY_RIGHT)) playerPosition.x += GetFrameTime()*6.0f*speed;
+        if (IsKeyDown(KEY_LEFT)) playerPosition.x -= GetFrameTime()*6.0f*speed;
+        if (IsKeyDown(KEY_UP)) playerPosition.y -= GetFrameTime()*6.0f*speed;
+        if (IsKeyDown(KEY_DOWN)) playerPosition.y += GetFrameTime()*6.0f*speed;
 
         BeginDrawing();
 
