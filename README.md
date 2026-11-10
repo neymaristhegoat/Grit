@@ -21,5 +21,7 @@ Grit is available on PC, Mac, and Linux. The releases can be found on the [GitHu
 # Gameplay
 This section will be updated when more progress to the game is made.
 
+You can enter Debug Mode by pressing F2 to show FPS and Frame Time.
+
 
 
