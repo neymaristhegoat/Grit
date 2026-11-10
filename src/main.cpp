@@ -6,20 +6,24 @@ int main(void) {
     const int screenHeight = 450;
     const char *FpsText = 0;
     const char *FtText = 0;
+    const char *FpsTargetText = 0;
     const char speed = 15.0f;
     bool DebugMode = false;
     bool DebugPrint = true;
+    int currentFps = 60;
 
     Vector2 playerPosition = { (float)screenWidth/2, (float)screenHeight/2};
 
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(screenWidth, screenHeight, "Grit InDev");
 
-    SetTargetFPS(60);
+    SetTargetFPS(currentFps);
 
     std::cout << "[DEBUG] Window Created\n";
 
     while (!WindowShouldClose()) {
+        float mouseWheel = GetMouseWheelMove();
+
         if (IsKeyPressed(KEY_F11)) ToggleFullscreen();
         if (IsKeyPressed(KEY_F2)) {
             if (!DebugMode) {
@@ -54,8 +58,17 @@ int main(void) {
             }
             FpsText = TextFormat("FPS: %i", GetFPS());
             FtText = TextFormat("Frame Time: %i", GetFrameTime());
+            FpsTargetText = TextFormat("FPS Target: %i", currentFps);
             DrawText(FpsText, 7, 19, 15, LIGHTGRAY);
             DrawText(FtText, 7, 31, 15, LIGHTGRAY);
+            DrawText(FpsTargetText, 7, 43, 15, LIGHTGRAY);
+
+            if (mouseWheel != 0) {
+                currentFps += (int)mouseWheel;
+                if (currentFps < 0) currentFps = 0;
+                SetTargetFPS(currentFps);
+            }
+
             
         }
 
