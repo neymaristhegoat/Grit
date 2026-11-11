@@ -1,4 +1,4 @@
-# Grit
+<img width="2126" height="740" alt="GritLogo" src="https://github.com/user-attachments/assets/9a137a65-24ad-4470-bb67-7abe5c696b32" />
 
 Grit is a 2D survival game written in C++ with raylib. The objective of the game is to scavenge the lands for scraps to gain resources for a base, fight of all of the monsters during the night, beat all of the bosses, and upgrade all of your stats to become the ultimite Scrapper.
 
